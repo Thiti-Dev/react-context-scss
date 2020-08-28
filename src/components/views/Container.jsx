@@ -1,12 +1,26 @@
-import React, { Component } from 'react'
-import MainStyle from '../../styles/main.module.scss'
+import React, { Component } from 'react';
+//
+// ─── COMPONENT IMPORTING ────────────────────────────────────────────────────────
+//
+import Todo from '../Todo/Todo';
+import Summary from '../Summary/';
+// ────────────────────────────────────────────────────────────────────────────────
+
+//
+// ─── CONTEXT ────────────────────────────────────────────────────────────────────
+//
+import TodoContext, { TodoProvider } from '../../contexts/TodoContext';
+// ────────────────────────────────────────────────────────────────────────────────
 
 export default class Container extends Component {
-    render() {
-        return (
-            <div>
-                <h1 className={MainStyle.center_header}>Todo container</h1>
-            </div>
-        )
-    }
+	render() {
+		return (
+			<React.Fragment>
+				<TodoProvider>
+					<Todo />
+					<Summary />
+				</TodoProvider>
+			</React.Fragment>
+		);
+	}
 }
